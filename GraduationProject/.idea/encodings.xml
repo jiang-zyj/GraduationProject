@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/com/zyj/Pojo/Page.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mail.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/activation-1.1.0.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/commons-beanutils-1.8.3.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.2.2.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/commons-io-1.4.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/commons-logging-1.1.1.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/fastjson-1.1.37.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/java-mail-1.4.4.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/taglibs-standard-impl-1.2.1.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/taglibs-standard-spec-1.2.1.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/img/testUid1617684908928.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/pages/common/page_nav.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/pages/temp/page_nav.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/pages/user/client/login.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/static/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/static/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/static/js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/static/js/echarts.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/static/pages" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/static/plugins" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

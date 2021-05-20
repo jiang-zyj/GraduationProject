@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 表示这个是c3p0配置文件的开始 -->
+<c3p0-config>
+	<!-- 默认的配置 -->
+	<default-config>
+		<!-- 通过property属性来配置对应的值 -->
+		<!-- 数据库连接池的四大件 -->
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/graduationproject?useUnicode=true&amp;characterEncoding=UTF-8</property>
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="user">root</property>
+		<property name="password">123456</property>
+		<!-- 配置连接池的参数 -->
+		<property name="acquireIncrement">3</property>
+		<property name="initialPoolSize">10</property>
+		<property name="minPoolSize">2</property>
+		<property name="maxPoolSize">10</property>
+	</default-config>
+	<!-- 可以通过指定的名称来获取对应的数据源 -->
+	<named-config name="mysql-config2">
+		<!-- 数据库连接池的四大件 -->
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/mysql?serverTimezone=UTC</property>
+		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+		<property name="user">root</property>
+		<property name="password">123456</property>
+		<!-- 配置连接池的参数 -->
+		<property name="acquireIncrement">3</property>
+		<property name="initialPoolSize">10</property>
+		<property name="minPoolSize">2</property>
+		<property name="maxPoolSize">10</property>
+	</named-config> 	
+</c3p0-config>				

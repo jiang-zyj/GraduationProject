@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/web/LayUIManager/COVID-19Manager/data_view.jsp" value="file://$PROJECT_DIR$/web/LayUIManager/COVID-19Manager" />
+        <entry key="file://$PROJECT_DIR$/web/LayUIManager/UserManager/user_view.jsp" value="file://$PROJECT_DIR$/web/LayUIManager/UserManager" />
+        <entry key="file://$PROJECT_DIR$/web/pages/guide/client/rumorView.jsp" value="file://$PROJECT_DIR$/web/pages/guide/client" />
+      </map>
+    </option>
+  </component>
+</project>

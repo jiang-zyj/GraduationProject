@@ -1,0 +1,87 @@
+
+
+<!-- 通过表格加载所有的分类【一级分类】 -->
+<!-- End of toolbar -->
+<!-- 防护攻略 -->
+<table id="protectStrategy-datagrid" toolbar="#wu-toolbar"></table>
+<!-- 表格上的工具条 -->
+<div id="tb">
+    <a id="btn1" href="javascript:void(0)" onclick="openAddFaceMaskDialog()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
+    <a id="btn2" href="#" class="easyui-linkbutton" onclick="deleteFaceMaskByFm_id()" data-options="iconCls:'icon-remove'">删除</a>
+    <a id="btn3" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
+    <a id="btn4" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help'">帮助中心</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"></a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true"></a>
+</div>
+
+<!-- 添加分类的对话框 -->
+<div id="dd" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"
+     data-options="iconCls:'icon-save',resizable:true,modal:true,closed:true">
+    Dialog Content.
+</div>
+
+<script type="text/javascript">
+
+    function openAddFaceMaskDialog() {
+        
+    }
+
+    function deleteFaceMaskByFm_id() {
+        var row = $("#protectStrategy-datagrid").datagrid("getSelected");
+        if (row == null) {
+            $.messager.alert("系统提示","请先选择要删除的口罩使用方法!","warning");
+        } else {
+            $.messager.confirm("系统提示","您确定要删除的口罩使用方法吗？",function (r) {
+                if (r) {
+                    // 删除成功
+                    alert(row.fm_id);
+                    // 发起 AJAX 请求实现删除分类信息
+                    $.post({
+                        url:'../guide?action=easyUIDeleteFaceMaskByFm_id',
+                        data:{fm_id:row.fm_id},
+                        success:function (data) {
+                            if (data) {
+                                alert("删除成功");
+                            } else {
+                                alert("删除失败");
+                            }
+                        },
+                        dataType:"json"
+                    });
+                } else {
+
+                }
+            });
+        }
+
+    }
+
+    /**
+     * Name 载入数据
+     */
+    $('#protectStrategy-datagrid').datagrid({
+        url:'../guide?action=easyUIQueryAllFaceMask',
+
+        pageSize:2,
+
+        columns:[[
+            { checkbox:true},
+            { field:'fm_id',title:'口罩方法编号',width:100,sortable:true},
+            { field:'fm_method',title:'口罩方法名',width:180,sortable:true},
+        ]],
+        toolbar:"#tb"
+    });
+</script>
+
+<!--<script type="text/javascript">
+    $(function () {
+        $('#dg').datagrid({
+            url: 'datagrid_data.json',
+            columns: [[
+                {field: 'code', title: 'Code', width: 100},
+                {field: 'name', title: 'Name', width: 100},
+                {field: 'price', title: 'Price', width: 100, align: 'right'}
+            ]]
+        });
+    });
+</script>-->
