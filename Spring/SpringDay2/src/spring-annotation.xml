@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/context
+
+                        http://www.springframework.org/schema/context/spring-context-3.0.xsd    ">
+
+    <!-- 组件扫描：扫描加了注解的类，并管理到 IOC 容器中
+          base-package：基包。Spring 会扫描指定包以及子包下所有的类，将带有注解的类管理到 IOC 容器中
+    -->
+    <context:component-scan base-package="com.zyj.spring.annotation" use-default-filters="false">
+        <!--
+        指定扫描：必须设置 use-default-filters = "false" (默认为 true)
+                // 将带有 Controller 注解的类放入 IOC 容器中，其他的都不管（且需要设置 use-default-filters = "false"）
+               <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+
+        排除扫描：设置 use-default-filters = "true" (或者不写，因为默认为 true)
+        -->
+<!--        将带有 Controller 注解的类放入 IOC 容器中，其他的都不管（且需要设置 use-default-filters = "false"）
+            type = annotation 时，expression 为 注解的全类名-->
+<!--        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+
+
+<!--        type = "assignable" 时，expression 指定具体的全类名；同样需要配合 user-default-filters = "false" 来一起使用-->
+        <context:include-filter type="assignable" expression="com.zyj.spring.annotation.controller.UserController"/>
+
+<!--        排除扫描，配合 user-default-filters = "true" 使用，除了指定的注解，其余的都放入 IOC 容器中进行管理-->
+<!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+
+<!--        配合 user-default-filters = "true" 使用，除了该类，其余包下的带有注解的类都放入 IOC 容器中进行管理-->
+<!--        <context:exclude-filter type="assignable" expression="com.zyj.spring.annotation.controller.UserController"/>-->
+    </context:component-scan>
+
+
+</beans>

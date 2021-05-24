@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 配置 SQL 映射
+        namespace:命名空间.
+            1.随便写。
+            2.Mapper 接口开发，不能随便写，必须按照规定来写。
+ -->
+<mapper namespace="com.zyj.mybatis.dao.EmployeeMapperResultMap">
+    <!--     public Employee getEmployeeById(Integer id); -->
+    <select id="getEmployeeById" resultMap="MyEmp">
+        select * from employee where id = #{id}
+    </select>
+
+    <!-- 自定义映射
+            type: 最终结果集封装的类型
+                <id>: 完成主键列的映射
+                    column: 指定结果集的列名
+                    property: 指定对象的属性名
+                <result>: 完成普通列的映射
+    -->
+    <!--
+        id  last_name   email           gender  d_id
+        4	小慧	    xxh@zyj.com	    0	    4
+    -->
+    <resultMap id="MyEmp" type="com.zyj.mybatis.beans.Employee">
+        <id column="id" property="id"/>
+        <result column="last_name" property="last_Name"/>
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+    </resultMap>
+
+    <!--
+        需求：查询员工对象，并且查询员工所在的部门信息。
+    -->
+    <!-- public Employee getEmpAndDept(Integer id); -->
+    <select id="getEmpAndDept" resultMap="myEmpAndDept">
+        select e.id eid, e.last_name,e.email,e.gender,d.id did,d.dept_name from employee e , dept d
+where e.d_id = d.id and e.id = #{id}
+    </select>
+
+    <!--
+        id  last_name   email           gender  did dept_name
+        4	小慧	    xxh@zyj.com	    0	    4   人事部
+    -->
+    <resultMap id="myEmpAndDept" type="com.zyj.mybatis.beans.Employee">
+        <id column="eid" property="id"/>，    
+        <result column="last_name" property="last_Name"/>
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+        <!-- 支持级联 -->
+<!--        <result column="did" property="dept.id"/>-->
+<!--        <result column="dept_name" property="dept.deptName"/>-->
+        <!--
+            association: 完成关联、联合属性的映射
+                property: 指定联合属性
+                javaType: 指定联合属性的类型
+        -->
+        <association property="dept" javaType="com.zyj.mybatis.beans.Department">
+            <id column="did" property="id"/>
+            <result column="dept_name" property="deptName"/>
+        </association>
+
+    </resultMap>
+
+        <!--
+            association 使用分步查询:
+            需求：查询员工信息并且查询员工所在的部门信息。
+                1. 先根据员工的 id 查询员工信息
+                2. 使用外键 d_id 查询部门信息
+        -->
+    <!-- public Employee getEmpAndDeptStep(Integer id); -->
+    <select id="getEmpAndDeptStep" resultMap="myEmpAndDeptStep">
+        select * from employee where id = #{id}
+    </select>
+    <resultMap id="myEmpAndDeptStep" type="com.zyj.mybatis.beans.Employee">
+        <id column="id" property="id"/>
+        <result column="last_name" property="last_Name"/>
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+        <!-- 分布查询 -->
+        <association property="dept"
+                     select="com.zyj.mybatis.dao.DepartmentMapperResultMap.getDeptById"
+                     column="{did = d_id}" fetchType="eager">
+        </association>
+    </resultMap>
+        <!-- association: 分布查询使用延迟加载 / 懒加载
+                在全局配置文件中加上两个 Setting 设置
+                <setting name="lazyLoadingEnabled" value="true"/>
+                <setting name="aggressiveLazyLoading" value="false"/>
+         -->
+
+    <!-- public List<Employee> getEmployeesByDid(Integer id); -->
+    <select id="getEmployeesByDid" resultType="com.zyj.mybatis.beans.Employee">
+        <include refid="selectEmployeeASQL"></include> from employee where d_id = #{did}
+    </select>
+    
+    <!-- 抽取可重用的 SQL 片段
+            搭配 语句中的 <include></include>标签进行使用
+    -->
+    <sql id="selectEmployeeASQL">
+        select id, last_name, email,gender
+    </sql>
+    
+</mapper>

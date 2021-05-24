@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+
+    <!-- 组件扫描 -->
+    <context:component-scan base-package="com.zyj.ssm">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 数据源 -->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"></property>
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <!-- 事务 (使用 后缀为 tx)-->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!-- 基于注解使用事务 -->
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"/>
+
+
+    <!-- Spring 整合 Mybatis -->
+    <!-- 1. SqlSession 对象的创建、管理等 -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 数据源 -->
+        <property name="dataSource" ref="dataSource"></property>
+        <!-- Mybatis 的全局配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+
+        <!-- Mybatis 的 SQL 映射文件 -->
+<!--        <property name="mapperLocations" value="mybatis.mapper/*.xml"></property>-->
+
+        <!-- 别名处理 -->
+        <property name="typeAliasesPackage" value="com.zyj.ssm.beans"></property>
+    </bean>
+    <!-- 2. Mapper 接口代理实现类对象的创建、管理等
+            MapperScannerConfigurer: 会为指定包下的所有 Mapper 接口生成代理实现类对象并管理到 IOC 容器中。
+
+            EmployeeMapper ==> 代理实现类 ==> 具体对象：对象在 IOC 容器中的 ID 值为 employeeMapper(id 为类名首字母小写)
+    -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zyj.ssm.mapper"></property>
+    </bean>
+    <!-- 也可以用下面这种来配置 -->
+    <!--<mybatis-spring:scan base-package="com.zyj.ssm.mapper"/>-->
+</beans>

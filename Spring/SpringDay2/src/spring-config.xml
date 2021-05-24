@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--
+        bean 的作用域 (scope)
+            singleton：单例（默认值）,在整个 IOC 容器中只能存在一个 bean 的对象
+                        而且在 IOC 容器对象被创建时，就创建单例的 bean 的对象，后续每次通过 getBean() 方法
+                        获取 bean 对象时，返回的都是同一个对象。
+            prototype：原型的/多例的，在整个 IOC 容器中可以有多个 bean 的对象。在 IOC 容器对象被创建时
+                        不会创建原型的 bean 的对象。而是等到每次通过 getBean() 方法获取 bean 对象时才会
+                        返回一个新的 bean 对象返回。
+            (在 web 环境下才支持)
+            request：一次请求对应一个 bean 对象
+            session：一次会话对应一个 bean 对象
+    -->
+
+    <!--<bean id="car" class="com.zyj.spring.scope.Car" scope="singleton">
+        <property name="brand" value="奥迪"></property>
+        <property name="price" value="520000"></property>
+    </bean>-->
+
+    <bean id="car1" class="com.zyj.spring.scope.Car" scope="prototype">
+        <property name="brand" value="奥迪"></property>
+        <property name="price" value="520000"></property>
+    </bean>
+
+
+
+
+
+</beans>

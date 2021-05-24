@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="41349d40-fa59-4e55-8a48-61d423f76422" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/MyBatis01/MyBatis01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyBatis01/MyBatis01.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:\IDEA 系列版本\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1smzcmhHVOSDW2v5qRbAdSVZj7D" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41349d40-fa59-4e55-8a48-61d423f76422" name="Default Changelist" comment="" />
+      <created>1621492634788</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621492634788</updated>
+      <workItem from="1621492635865" duration="918000" />
+      <workItem from="1621496329057" duration="2732000" />
+      <workItem from="1621501687077" duration="1681000" />
+      <workItem from="1621510436220" duration="5905000" />
+      <workItem from="1621852415194" duration="5511000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="453" y="180" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621492711537">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="453" y="180" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621492711537" />
+    <state x="832" y="297" key="FileChooserDialogImpl" timestamp="1621497168164">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="832" y="297" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621497168164" />
+    <state x="553" y="187" key="SettingsEditor" timestamp="1621497174612">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="553" y="187" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1621497174612" />
+    <state x="281" y="237" width="1436" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1621511825847">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="281" y="237" width="1436" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621511825847" />
+    <state x="888" y="274" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1621497417576">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="888" y="274" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621497417576" />
+  </component>
+</project>

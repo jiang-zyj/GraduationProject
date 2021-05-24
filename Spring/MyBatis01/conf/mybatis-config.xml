@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 1. properties:属性配置
+            <property>: 一个具体的属性配置
+            resource: 引入类路径下的属性文件
+            url: 网络路径或者磁盘路径下的属性文件
+    -->
+    <properties resource="db.properties">
+        <!--<property name="jdbc.driver" value="com.mysql.jdbc.Driver"/>-->
+    </properties>
+
+    <!-- 2. settings：包含了很多重要的设置项 -->
+    <!--<settings>
+        &lt;!&ndash; 映射下划线到驼峰命名 &ndash;&gt;
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>-->
+
+    <!-- 3. typeAliases: 别名处理
+                <typeAlias>: 给某个 java 类型去别名
+                    type: 指定 java 的全类名
+                    alias: 指定别名。默认的别名就是类名。
+                <package>: 为指定的包以及子包下的类批量起别名。默认值为 类名
+                    如果有别名冲突的情况，可以使用 @Alias 注解为冲突的类具体指定别名
+    -->
+    <typeAliases>
+        <!--<typeAlias type="com.zyj.Employee" alias="employee"></typeAlias>-->
+        <package name="com.zyj.mybatis.beans"/>
+    </typeAliases>
+
+    <!-- 4. 多个环境
+            environments: Mybatis 支持配置多个环境，通过 default 来指定具体使用的环境
+                environment: 具体的环境
+                    <transactionManager>: 事务管理
+                        JDBC: JdbcTransactionFactory
+                        MANAGED: ManagedTransactionFactory
+                        结论：事务管理将来是交给 Spring 去做。
+                    <dataSource>: 数据源
+                        UNPOOLED：不使用连接池  UnpooledDataSourceFactory
+                        POOLED： 使用连接池  PooledDataSourceFactory
+                        JNDI：JndiDataSourceFactory
+                        结论：数据源将来交给 Spring 去做。
+
+    -->
+    <environments default="development">
+        <!-- 具体环境 -->
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+        
+        <!--<environment id="test">
+            <transactionManager type=""></transactionManager>
+            <dataSource type=""></dataSource>
+        </environment>-->
+        
+    </environments>
+    <!-- 5. Mappers 引入 SQL 映射文件
+            <mapper>: 引入一个 SQL 映射文件
+                resource: 引入类路径下的 SQL 映射文件
+            <package>: 批量引入 SQL 映射文件
+                要求：SQL 映射文件必须与 Mapper 接口 同名 同位置
+    -->
+    <mappers>
+        <!--<mapper resource="EmployeeMapper.xml"/>-->
+        <package name="com.zyj.mybatis.dao"/>
+    </mappers>
+</configuration>

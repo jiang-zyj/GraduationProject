@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SpringMVC03:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringMVC03_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SpringMVC03/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SpringMVC03" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
+          <element id="library" level="module" name="jackson-annotations-2.1.5" module-name="SpringMVC03" />
+          <element id="library" level="module" name="commons-fileupload-1.3.1" module-name="SpringMVC03" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

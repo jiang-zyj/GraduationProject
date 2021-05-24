@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 配置 SQL 映射
+        namespace:命名空间.
+            1.随便写。
+            2.Mapper 接口开发，不能随便写，必须按照规定来写。
+ -->
+<mapper namespace="com.zyj.ssm.mapper.EmployeeMapper">
+    <!-- public List<Employee> getAllEmployees(); -->
+    <select id="getAllEmployees" resultMap="myEmpAndDept">
+        select e.id eid, e.last_name, e.email, e.gender, d_id did, d.dept_name
+        from employee e, dept d
+        where e.d_id = d.id
+    </select>
+    <resultMap id="myEmpAndDept" type="com.zyj.ssm.beans.Employee">
+        <id column="eid" property="id"/>
+        <result column="last_name" property="last_Name"/>
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+        <association property="dept" javaType="com.zyj.ssm.beans.Department">
+            <id column="did" property="id"/>
+            <result column="dept_name" property="deptName"/>
+        </association>
+    </resultMap>
+
+    <!-- 增删改自己写 -->
+
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 2. settings：包含了很多重要的设置项 -->
+    <settings>
+        <!-- 映射下划线到驼峰命名 -->
+        <!-- <setting name="mapUnderscoreToCamelCase" value="true"/>-->
+        <!-- 开启延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 配置按需加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+    <!-- 5. Mappers 引入 SQL 映射文件
+                <mapper>: 引入一个 SQL 映射文件
+                    resource: 引入类路径下的 SQL 映射文件
+                <package>: 批量引入 SQL 映射文件
+                    要求：SQL 映射文件必须与 Mapper 接口 同名 同位置
+        -->
+    <mappers>
+        <!--<mapper resource="EmployeeMapper.xml"/>-->
+        <package name="com.zyj.ssm.mapper"/>
+    </mappers>
+
+</configuration>

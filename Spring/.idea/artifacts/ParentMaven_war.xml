@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ParentMaven:war">
+    <output-path>$PROJECT_DIR$/ParentMaven/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ParentMaven</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Parent.war">
+      <element id="artifact" artifact-name="ParentMaven:war exploded" />
+    </root>
+  </artifact>
+</component>

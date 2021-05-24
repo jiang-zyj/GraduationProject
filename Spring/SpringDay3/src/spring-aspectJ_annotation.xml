@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 组件扫描 -->
+    <context:component-scan base-package="com.zyj.spring.aspectJ"></context:component-scan>
+
+
+    <!-- 基于注解使用 AspectJ：主要的作用是为 切面中的 通知 能作用到的 目标类 生成代理 -->
+    <!-- 就相当于 切入点表达式中指定的方法 如果被找到了，则会为该方法所在的类自动创建代理-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>

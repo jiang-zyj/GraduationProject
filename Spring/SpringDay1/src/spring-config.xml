@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 配置 bean
+         配置方式：基于XML的方式，使用的全类名的方式。
+         <bean>：受Spring管理的一个 javaBean 对象
+         id: <bean> 的唯一标识，在整个 IOC 容器中唯一不重复。
+         class: 指定 javaBean 的全类名。目的是通过反射来获取 bean 对象
+                    Class cls  = Class.forName("com.zyj.pojo.User");
+                    Object obj = cls.newInstance(); 必须提供无参构造器
+         <property>: 给对象的属性赋值
+            name；指定属性名（指定 set 风格的属性名）
+            value：执行属性值
+
+    -->
+    <!-- 配置 bean -->
+    <bean id="user" class="com.zyj.pojo.User">
+        <property name="name" value="曾亚军"></property>
+        <property name="id" value="003"></property>
+    </bean>
+    <bean id="user1" class="com.zyj.pojo.User">
+        <property name="name" value="曾亚军"></property>
+        <property name="id" value="003"></property>
+    </bean>
+
+    <!-- DI 依赖注入的方式：set 方法注入 -->
+    <bean id="car" class="com.zyj.DI.Car">
+        <property name="brand" value="奥迪"></property>
+        <property name="crop" value="一汽"></property>
+        <property name="price"  value="1000000"></property>
+    </bean>
+    <!-- DI 依赖注入的方式：构造器的方式
+        index:指定参数位置
+        type:指定参数的类型
+     -->
+    <bean id="car1" class="com.zyj.DI.Car">
+        <constructor-arg value="宝马" index="0"></constructor-arg>
+        <constructor-arg value="1200000" index="2"></constructor-arg>
+        <constructor-arg value="华晨" index="1"></constructor-arg>
+    </bean>
+    <bean id="car2" class="com.zyj.DI.Car">
+        <constructor-arg value="奔驰" ></constructor-arg>
+        <constructor-arg value="梅赛德斯"></constructor-arg>
+        <constructor-arg value="300" type="java.lang.Double"></constructor-arg>
+    </bean>
+
+    <!-- 使用 p 命名空间的语法配置bean 底层依旧是set风格的属性名-->
+    <bean id="car3" class="com.zyj.DI.Car"
+          p:brand="福特" p:crop="长安" p:price="1000" p:speed="200">
+    </bean>
+
+
+    <!-- 字面量
+        特殊字符：
+            1、使用实体(转义)。 $nbsp;
+                                &:&amp;
+                                <:&lt;
+                                >:&gt;
+            2、使用 cdata  <![CDATA[ 任意字符 ]]>
+     -->
+    <bean id="book" class="com.zyj.DI.Book">
+        <property name="id">
+            <value>1001</value>
+        </property>
+        <!--<property name="name" value="&lt;&lt;大碗牛肉&gt;&gt;"></property>-->
+        <property name="name">
+            <value><![CDATA[<<大碗牛肉>>]]></value>
+        </property>
+    </bean>
+
+    <!-- 引用其他的 bean 对象
+          使用 ref 来引用对象，但是只能引用 IOC 容器中的 bean 对象
+     -->
+    <bean id="person" class="com.zyj.DI.Person">
+        <property name="id" value="101"></property>
+        <property name="name" value="老王"></property>
+        <property name="car" ref="car"></property>
+
+        <!-- 给级联属性赋值(了解) 修改之后原对象的值也会修改，其他对象再调用时是修改后的值 -->
+        <property name="car.speed" value="280"></property>
+    </bean>
+
+    <!-- 内部 bean -->
+    <bean id="person1" class="com.zyj.DI.Person">
+        <property name="id" value="102"></property>
+        <property name="name" value="老刘"></property>
+        <property name="car">
+            <!--内部 bean 只能在内部使用，则 id 是没必要配置的-->
+            <bean class="com.zyj.DI.Car">
+                <property name="brand" value="Mini"></property>
+                <property name="crop" value="宝马"></property>
+                <property name="price" value="309999"></property>
+                <property name="speed" value="200"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- null值  <null/> 标签-->
+    <bean id="person2" class="com.zyj.DI.Person">
+        <property name="id" value="103"></property>
+        <property name="name" value="小王"></property>
+        <!--也可以注释不写，同样也是空置-->
+        <!--<property name="car"><null/></property>-->
+        <property name="car"><null/></property>
+    </bean>
+
+    <!-- List集合 -->
+    <bean id="personList" class="com.zyj.DI.PersonList">
+        <property name="name" value="Tom"></property>
+        <property name="cars">
+            <!--构造集合-->
+            <list>
+                <!-- 可以使用 <bean> <ref/> 来构造集合中的对象-->
+                <ref bean="car"></ref>
+                <ref bean="car1"></ref>
+                <ref bean="car2"></ref>
+                <!--<bean></bean>-->
+                <!-- 如果有数组类型的属性，
+                则也可以使用 List 标签来进行赋值，都是一样的
+                都有相类似的标签-->
+                <!--<array>
+                    <value></value>
+                </array>
+                -->
+                <!--<set></set>-->
+            </list>
+        </property>
+    </bean>
+
+    <!-- Map集合 -->
+    <bean id="personMap" class="com.zyj.DI.PersonMap">
+        <property name="name" value="Jerry"></property>
+        <property name="cars">
+            <!-- 构造Map -->
+            <map>
+                <entry key="A" value-ref="car"></entry>
+                <entry key="B" value-ref="car1"></entry>
+                <entry key="C" value-ref="car2"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- 集合bean -->
+    <util:list id="listBean">
+        <ref bean="car"></ref>
+        <ref bean="car1"></ref>
+        <ref bean="car2"></ref>
+    </util:list>
+    <!-- 集合bean的使用，直接使用 ref 引用就好 -->
+    <bean id="personList2" class="com.zyj.DI.PersonList">
+        <property name="name" value="Tom"></property>
+        <property name="cars" ref="listBean"></property>
+    </bean>
+
+
+    <!-- 通过 FactoryBean 来配置 bean
+            FactoryBean 具体返回的对象是由 getObject 方法来决定的。
+    -->
+    <bean id="carFactoryBean" class="com.zyj.FactoryBean.CarFactoryBean"></bean>
+
+    <!-- bean的继承关系
+          parent:指向父类
+          abstract="true":抽象bean,不能被创建对象，class 可以省略不配置
+          继承可以从父bean中继承一些配置，但是 id、abstract、autowire 是不能被继承下来的
+    -->
+    <bean id="address1" abstract="true">
+        <property name="city" value="BeiJing"></property>
+        <property name="street" value="ChangAnJie"></property>
+    </bean>
+    <bean id="address2" class="com.zyj.relation.Address" parent="address1">
+<!--        <property name="city" value="BeiJing"></property>-->
+        <property name="street" value="WuDaoKou"></property>
+    </bean>
+
+
+    <!-- 依赖关系 -->
+    <bean id="address3" class="com.zyj.relation.Address"
+          parent="address1" depends-on="address4">
+    </bean>
+    <bean id="address4" class="com.zyj.relation.Address"></bean>
+</beans>

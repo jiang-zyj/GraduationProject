@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c83e3f77-7ea5-4599-90bf-752739a049fc" name="Default Changelist" comment="GraduationProject pull">
+      <change beforePath="$PROJECT_DIR$/../Spring/MyBatis01/MyBatis01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring/MyBatis01/MyBatis01.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:\IDEA 系列版本\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1sn0AiG4oYHwyVRUWB6n0mnmwNf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c83e3f77-7ea5-4599-90bf-752739a049fc" name="Default Changelist" comment="" />
+      <created>1621492905026</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621492905026</updated>
+      <workItem from="1621492906098" duration="608000" />
+      <workItem from="1621496317318" duration="18000" />
+      <workItem from="1621496582650" duration="36000" />
+      <workItem from="1621496910559" duration="4203000" />
+      <workItem from="1621510497773" duration="1281000" />
+    </task>
+    <task id="LOCAL-00001" summary="GraduationProject pull">
+      <created>1621500187969</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1621500187969</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="GraduationProject pull" />
+    <option name="LAST_COMMIT_MESSAGE" value="GraduationProject pull" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="478" y="83" key="CommitChangelistDialog2" timestamp="1621500406879">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="478" y="83" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1621500406879" />
+    <state x="632" y="240" key="RollbackChangesDialog" timestamp="1621498038615">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="632" y="240" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621498038615" />
+    <state x="500" y="255" key="Vcs.Push.Dialog.v2" timestamp="1621500269379">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="500" y="255" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1621500269379" />
+    <state x="153" y="113" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1621511825957">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="153" y="113" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621511825957" />
+    <state x="876" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1621497950013">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="876" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621497950013" />
+  </component>
+</project>

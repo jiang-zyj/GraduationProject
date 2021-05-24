@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SpringDay1:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringDay1_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SpringDay1/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SpringDay1" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="com.springsource.net.sf.cglib-2.2.0" module-name="SpringDay1" />
+          <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

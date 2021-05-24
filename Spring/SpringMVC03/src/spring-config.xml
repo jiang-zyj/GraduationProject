@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 组件扫描 -->
+    <context:component-scan base-package="com.zyj.springmvc"></context:component-scan>
+
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--
+        default-servlet-handler
+        将在SpringMVC上下文中定义一个DefaultServletHttpRequestHandler.
+        它会对进入DispatcherServlet的请求进行筛查，如果发现是没有经过映射的请求，
+        就将该请求交由 WEB 应用服务器默认的 Servlet 处理，如果是有映射的请求，才由DispatcherServlet处理
+
+        如果web应用服务器的默认的Servlet的名字不叫"default",则需要通过default-servlet-name来指定
+
+        配置了 default-servlet-handler后，RequestMapping的映射会失效，需要加上annotation-driven的配置
+     -->
+    <mvc:default-servlet-handler/>
+    <!-- 以后讲 -->
+    <mvc:annotation-driven/>
+
+    <!-- 配置文件的上传
+            该 bean 的 id 值必须是 multipartResolver，因为 SpringMVC 底层会通过该 id 到容器中找对应的 bean。
+    -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 保证与上传表单所在的 JSP 页面的编码一致 -->
+        <property name="defaultEncoding" value="utf-8"></property>
+        <!-- 设置最大文件大小 10M -->
+        <property name="maxUploadSize" value="10485760"></property>
+    </bean>
+
+
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <!-- 1. 拦截所有的请求 -->
+        <!-- 执行顺序：配置在前先执行，配置在后后执行 -->
+        <bean class="com.zyj.springmvc.interceptor.MyFirstInterceptor"></bean>
+        <bean class="com.zyj.springmvc.interceptor.MySecondInterceptor"></bean>
+<!--        <ref bean="myFirstInterceptor"/>-->
+
+        <!-- 2. 指定拦截 或者 指定不拦截 -->
+        <!--<mvc:interceptor>
+            &lt;!&ndash; 指定拦截 &ndash;&gt;
+            <mvc:mapping path="/emps"/>
+            &lt;!&ndash; 指定不拦截 &ndash;&gt;
+            <mvc:exclude-mapping path="/emps"/>
+            <bean class="com.zyj.springmvc.interceptor.MyFirstInterceptor"></bean>
+&lt;!&ndash;            <ref bean="myFirstInterceptor"/>&ndash;&gt;
+        </mvc:interceptor>-->
+    </mvc:interceptors>
+
+
+</beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/context
+
+                        http://www.springframework.org/schema/context/spring-context-3.0.xsd    ">
+    <!-- Car -->
+    <bean id="car1" class="com.zyj.spring.autowire.Car">
+        <property name="brand" value="奔驰"></property>
+        <property name="price" value="450000"></property>
+    </bean>
+    <!--<bean id="car2" class="com.zyj.spring.autowire.Car">
+        <property name="brand" value="宝马"></property>
+        <property name="price" value="400000"></property>
+    </bean>-->
+
+    <!-- Address -->
+    <bean id="address" class="com.zyj.spring.autowire.Address">
+        <property name="province" value="湖南"></property>
+        <property name="city" value="长沙"></property>
+    </bean>
+
+    <!--
+        Person：演示自动装配
+
+         byName：使用 bean 的属性名与 IOC 容器中 <bean> 的 id 值进行匹配，匹配成功则进行装配
+
+         byType：使用 bean 的属性的类型与 IOC 容器中 <bean> 的 class 进行匹配，如果唯一匹配则装配成功
+                如果匹配到多个兼容类型的 <bean> ，则抛出异常
+         缺点：如果使用自动装配，那么 IOC 如果全都有对应的 bean，则全部自动装配上了，不灵活
+    -->
+    <bean id="person" class="com.zyj.spring.autowire.Person" autowire="byType">
+        <property name="name" value="曾亚军"></property>
+    </bean>
+</beans>

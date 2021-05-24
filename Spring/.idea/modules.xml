@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MavenTest/MavenTest.iml" filepath="$PROJECT_DIR$/MavenTest/MavenTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyBatis01/MyBatis01.iml" filepath="$PROJECT_DIR$/MyBatis01/MyBatis01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis02/Mybatis02.iml" filepath="$PROJECT_DIR$/Mybatis02/Mybatis02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OurFriend/OurFriend.iml" filepath="$PROJECT_DIR$/OurFriend/OurFriend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ParentMaven/ParentMaven.iml" filepath="$PROJECT_DIR$/ParentMaven/ParentMaven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSM/SSM.iml" filepath="$PROJECT_DIR$/SSM/SSM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring.iml" filepath="$PROJECT_DIR$/Spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringDay1/SpringDay1.iml" filepath="$PROJECT_DIR$/SpringDay1/SpringDay1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringDay2/SpringDay2.iml" filepath="$PROJECT_DIR$/SpringDay2/SpringDay2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringDay3/SpringDay3.iml" filepath="$PROJECT_DIR$/SpringDay3/SpringDay3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringMVC01/SpringMVC01.iml" filepath="$PROJECT_DIR$/SpringMVC01/SpringMVC01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringMVC02/SpringMVC02.iml" filepath="$PROJECT_DIR$/SpringMVC02/SpringMVC02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringMVC02_CRUD/SpringMVC02_CRUD.iml" filepath="$PROJECT_DIR$/SpringMVC02_CRUD/SpringMVC02_CRUD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringMVC03/SpringMVC03.iml" filepath="$PROJECT_DIR$/SpringMVC03/SpringMVC03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringMVC04/SpringMVC04.iml" filepath="$PROJECT_DIR$/SpringMVC04/SpringMVC04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringMVC05/SpringMVC05.iml" filepath="$PROJECT_DIR$/SpringMVC05/SpringMVC05.iml" />
+    </modules>
+  </component>
+</project>
